@@ -57,7 +57,7 @@ for i=1:nFiles
         
         % Check for time values
         if any(strcmpi('raw_data_retention', {info.Variables.Name}))
-            T(i).RetentionTimeRaw=ncread(file, 'raw_data_retention')' ./60;
+            T(i).RetentionTimeRaw=double(ncread(file, 'raw_data_retention')') ./60;
         else %retention times are not given explicitely
 
             start = ncread(file,'actual_delay_time');
@@ -70,7 +70,7 @@ for i=1:nFiles
         
         % Check for total intensity values
         if any(strcmpi('ordinate_values', {info.Variables.Name}))
-            T(i).SignalRaw= ncread(file, 'ordinate_values')';
+            T(i).SignalRaw= double(ncread(file, 'ordinate_values')');
         end
         
         if length( T(i).RetentionTimeRaw)~=length(T(i).SignalRaw)
