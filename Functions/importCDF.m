@@ -105,8 +105,8 @@ for i=1:nFiles
 end
 
 %interpolate to same retention times.One second resolution
-RetTime = 0:1/60:50;
-RetTime(end)=[];
+maxtime = max(cell2mat(arrayfun(@(x)(max(x.RetentionTimeRaw)), T, 'UniformOutput', false)));
+RetTime = 0:1/60:maxtime;
 
 for i=1:length(T)
     
