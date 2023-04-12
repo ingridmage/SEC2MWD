@@ -10,6 +10,7 @@ function T = multiAreaAnalysis(T,molarmass_limits,plots)
 %
 % T                     Table 
 % molarmass_limits      Limits between fractions (g/mol). Do not include end points
+% plots                 =1 outputs plot of calibration curve and derivative
 %
 % OUTPUT
 % T                     Table with new "fraction" columns
