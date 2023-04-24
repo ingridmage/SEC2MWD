@@ -29,7 +29,7 @@ T(:,contains(T.Properties.VariableNames,'Fraction'))=[];
 %find indices for fraction limits
 idx =[];
 for i=1:length(molarmass_limits)
-    [~,idx(i)] = min(abs(T.logMolarMass(1,:)-log10(molarmass_limits(i))));
+    [~,idx(i)] = min(abs(log10(T.MolarMass(1,:))-log10(molarmass_limits(i))));
 end
 
 idx = ([1 idx length(T.WM(i,:))]); %include min and max

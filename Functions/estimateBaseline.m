@@ -16,8 +16,8 @@ function T = estimateBaseline(T,parameters)
 %                           - SignalCropped           Detector signal cropped to range of interest
 %
 % baseline_parameters       optional struct with parameters for baseline estimation. Fields:
-%                               -smoothness (default = 1e6)
-%                               -asymmetry (default 1e-4)
+%                               -smoothness (default = 1e6, suggested range: 1E3 to 1E9)
+%                               -asymmetry (default 1e-4, suggested range:  1E-1 to 1E-6)
 %
 % OUTPUT
 % The same table with additional variable:
@@ -58,8 +58,8 @@ function baseline = assymetric_leastsquares(y, parameters)
 % INPUT
 %   y              intensity values (vector)
 %   parameters     struct with parameters:
-%                               -smoothness (default: 1E7, suggested range: 1E3 to 1E9)
-%                               -asymmetry (default: 1E-9, suggested range:  1E-1 to 1E-6)
+%                               -smoothness (suggested range: 1E3 to 1E9)
+%                               -asymmetry (suggested range:  1E-1 to 1E-6)
 %
 %   bl                estimated baseline
 

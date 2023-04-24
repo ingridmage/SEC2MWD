@@ -131,17 +131,15 @@ Mn = 1/AnM; %Average moleculat weight based on number
 PDI = Mw/Mn; %Polydispersive index, a measure of size heterogenity
 
 
-
-Results.logMolarMass = logM';
-Results.MolarMass = M';
 Results.slope = slope';
+Results.MolarMass = M';
+Results.FV = FV';
+Results.WM = WM';
 Results.xM = xM';
 Results.wM = wM'; 
 Results.nM = nM'; 
 Results.Mw = Mw;
 Results.Mn = Mn;
 Results.PDI = PDI;
-Results.FV = FV';
-Results.WM = WM';
 
 end
