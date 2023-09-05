@@ -11,10 +11,6 @@ datafolder = 'Data\';
 %if the data is in CDF files
 T = importCDF(datafolder);
 
-%make sampleIDs shorter and sort
-T.sampleID = cellfun(@(x) upper(x(6:10)),T.sampleID,'UniformOutput',false);
-T = sortrows(T,'sampleID');
-
 %plot the raw data
 figure; 
 plot(T.RetentionTimeRaw(1,:),T.SignalRaw);
@@ -85,11 +81,11 @@ legend(T.sampleID)
 %% Multiarea analysis
 
 %convert retention times to molarmasses, for multiarea calculation
-TimeLimits = [7.8 8.6 9.2 10 11]; %minutes
-MolarMassLimits = retentiontimeToMolarmass(TimeLimits,calmodel);
+TimeLimits = [7.4 7.95 8.95]; %minutes
+MolarMassLimits = retentiontimeToMolarmass(TimeLimits,calmodel)
 
 %or define molar mass limits directly
-MolarMassLimits = [100 300 600]
+MolarMassLimits = [900 1800 3000]
 
 
 T = multiAreaAnalysis(T,MolarMassLimits);
