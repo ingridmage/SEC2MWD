@@ -1,6 +1,6 @@
 
 clear; close all; clc;
-addpath('Functions\')
+addpath('..\src')
 
 %folder with raw data files
 datafolder = 'Data\';
