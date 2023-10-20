@@ -10,8 +10,9 @@ function calmodel = fitCalibrationModel(x,y,fitfunction,plotresults)
 % fitfunction   fitfunction(s), scalar or vector:
 %                   0 = all ,
 %                   1 = linear,
-%                   2 = Poly3
-%                   3 = PSS Poly3 (default)
+%                   2 = Poly3,
+%                   3 = PSS Poly3 (default),
+%                   4 = Poly5
 % plotresults =1 (default) creates a plot of the fitted curve
 %
 %
@@ -96,6 +97,20 @@ if sum(fitfunction == 0)==1 | sum(fitfunction ==3)>0 %fit "PSS Poly3", average b
 
     calmodel(i).xdata = x;
     calmodel(i).ydata = y;
+    i=i+1;
+end
+
+if sum(fitfunction == 0)==1 | sum(fitfunction ==4)>0 %fit "Poly5", regular 5th order polynomial
+
+    calmodel(i).Type = 'Poly5';
+    calmodel(i).MinTime = minTime;
+    calmodel(i).MaxTime = maxTime;
+
+    calmodel(i).p = polyfit(x,y,5);
+
+    calmodel(i).xdata = x;
+    calmodel(i).ydata = y;
+
     i=i+1;
 end
 

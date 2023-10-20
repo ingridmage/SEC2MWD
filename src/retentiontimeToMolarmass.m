@@ -13,24 +13,16 @@ function [MolarMass,LogMolarMass,slope] = retentiontimeToMolarmass(Time,calmodel
 
 
 
-if strcmp(calmodel.Type,'Linear') | strcmp(calmodel.Type,'Poly3')| strcmp(calmodel.Type,'PSS Poly 3')
+if strcmp(calmodel.Type,'Linear') | strcmp(calmodel.Type,'Poly3')| strcmp(calmodel.Type,'PSS Poly 3') | strcmp(calmodel.Type,'Poly5')
     LogMolarMass=polyval(calmodel.p,Time);
-            slope = polyval(polyder(calmodel.p),Time);
-
-
-
-elseif strcmp(calmodel.Type,'Exponential')
-    LogMolarMass=calmodel.p(1) + calmodel.p(2) * exp(-Time *calmodel.p(3));
-            Time2=[Time Time(end)+min(diff(Time))];
-            slope=diff(calmodel.p(1) + calmodel.p(2) * exp(-xx2 *calmodel.p(3)))./diff(xx2);
-
+    slope = polyval(polyder(calmodel.p),Time);
 end
 
 
 %fit extrapolations
 LogMolarMass(Time<calmodel.MinTime) = polyval(calmodel.extrapol_p1,Time(Time<calmodel.MinTime));
 LogMolarMass(Time>calmodel.MaxTime) = polyval(calmodel.extrapol_p2,Time(Time>calmodel.MaxTime));
-        
+
 slope(Time<calmodel.MinTime) = polyval(polyder(calmodel.extrapol_p1),Time(Time<calmodel.MinTime));
 slope(Time>calmodel.MaxTime) = polyval(polyder(calmodel.extrapol_p2),Time(Time>calmodel.MaxTime));
 
