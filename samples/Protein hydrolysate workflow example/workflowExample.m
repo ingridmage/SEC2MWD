@@ -1,6 +1,6 @@
 
 clear; close all; clc;
-addpath('..\src')
+addpath('..\..\src')
 
 %folder with raw data files
 datafolder = 'Data\';
