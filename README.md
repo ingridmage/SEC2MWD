@@ -1,6 +1,6 @@
 # SEC2MWD
 
-A MATLAB toolbox for derivation of molecular weight distributions from size exclusion chromatography
+A MATLAB toolbox for derivation of molecular weight distributions from size exclusion chromatography. A thorough description of the software can be found here: https://doi.org/10.1016/j.softx.2023.101602
 
 # Description
 Size exclusion chromatography (SEC) is a type of liquid chromatography used for separating molecules based on their size. This toolbox contains the pipeline for converting raw chromatograms to molecular weight distributions. The pipeline consists of seven steps, illustrated in the figure below.
